@@ -37,6 +37,9 @@ function main() {
         // router for the server
         const router = require('./server/routes/route');
         app.use('/', router);
+        app.use("/hello", (req, res)=>{
+            res.send("Hello")
+        });
 
         const port = process.env.PORT || 5000;
 
