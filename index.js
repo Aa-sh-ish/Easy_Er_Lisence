@@ -1,6 +1,6 @@
 const express = require('express');
 const path = require('path');
-const LOGGER = require('./logger');
+const LOGGER = require('./server/logger');
 
 LOGGER.init(false)
 
@@ -35,7 +35,7 @@ function main() {
         app.use(express.static(path.join(__dirname, "static")))
 
         // router for the server
-        const router = require('./routes/route');
+        const router = require('./server/routes/route');
         app.use('/', router);
 
         const port = process.env.PORT || 5000;
